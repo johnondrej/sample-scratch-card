@@ -29,7 +29,7 @@ class ScratchCardRepositoryImpl(
         val result = try {
             val response = apiService.getVersion(code)
 
-            if ((response.android?.toIntOrNull() ?: 0) >= ACTIVATION_SUCCESS_THRESHOLD) {
+            if ((response.android?.toIntOrNull() ?: 0) > ACTIVATION_SUCCESS_THRESHOLD) {
                 scratchCardFlow.value = ScratchCard.Activated(code)
                 ScratchCardActivationResult.Success
             } else {
