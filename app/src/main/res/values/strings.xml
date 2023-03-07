@@ -3,4 +3,11 @@
 
     <string name="screen_scratch">Scratch</string>
     <string name="screen_activation">Activation</string>
+
+    <string name="status_format">Status: %s</string>
+    <string name="status_new">New</string>
+    <string name="status_scratched">Scratched (Code %s)</string>
+    <string name="status_activated">Activated (Code %s)</string>
+
+    <string name="scratch_action">Scratch</string>
 </resources>

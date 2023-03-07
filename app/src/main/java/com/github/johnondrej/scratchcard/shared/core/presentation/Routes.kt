@@ -1,4 +1,4 @@
-package com.github.johnondrej.scratchcard.shared.presentation
+package com.github.johnondrej.scratchcard.shared.core.presentation
 
 object Routes {
 

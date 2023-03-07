@@ -1,4 +1,4 @@
-package com.github.johnondrej.scratchcard.shared.presentation
+package com.github.johnondrej.scratchcard.shared.core.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -16,9 +16,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.github.johnondrej.scratchcard.R
-import com.github.johnondrej.scratchcard.features.activation.ActivationScreen
-import com.github.johnondrej.scratchcard.features.scratch.ScratchScreen
-import com.github.johnondrej.scratchcard.features.status.StatusScreen
+import com.github.johnondrej.scratchcard.features.activation.presentation.ActivationScreen
+import com.github.johnondrej.scratchcard.features.scratch.presentation.ScratchScreen
+import com.github.johnondrej.scratchcard.features.status.presentation.StatusScreen
 import com.github.johnondrej.scratchcard.ui.theme.ScratchCardTheme
 
 class MainActivity : ComponentActivity() {

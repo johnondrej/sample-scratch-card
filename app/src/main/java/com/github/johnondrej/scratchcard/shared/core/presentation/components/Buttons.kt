@@ -1,4 +1,4 @@
-package com.github.johnondrej.scratchcard.shared.presentation.components
+package com.github.johnondrej.scratchcard.shared.core.presentation.components
 
 import androidx.compose.material.Button
 import androidx.compose.material.Text
