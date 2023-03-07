@@ -23,7 +23,7 @@ class ActivationScreenViewModel(
         }
     }
 
-    fun scratch(code: Int) {
+    fun activate(code: Int) {
         viewModelScope.launch {
             updateState { state -> state.copy(isLoading = true) }
             activateCard(code)

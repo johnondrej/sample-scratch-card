@@ -55,7 +55,7 @@ private fun CardContent(
         if (state.canActivate && code != null) {
             PrimaryButton(
                 text = stringResource(id = R.string.activate_action),
-                onClick = { viewModel.scratch(code) }
+                onClick = { viewModel.activate(code) }
             )
         } else {
             Text(
