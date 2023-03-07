@@ -2,9 +2,14 @@ package com.github.johnondrej.scratchcard.shared.scratchcard.model.entities.doma
 
 sealed interface ScratchCard {
 
-    object New : ScratchCard
+    val code: Int?
 
-    data class Scratched(val code: Int) : ScratchCard
+    object New : ScratchCard {
 
-    data class Activated(val code: Int) : ScratchCard
+        override val code: Int? = null
+    }
+
+    data class Scratched(override val code: Int) : ScratchCard
+
+    data class Activated(override val code: Int) : ScratchCard
 }

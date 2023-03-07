@@ -8,7 +8,11 @@ import org.koin.dsl.module
 
 val scratchCardModule = module {
 
-    single<ScratchCardRepository> { ScratchCardRepositoryImpl() }
+    single<ScratchCardRepository> {
+        ScratchCardRepositoryImpl(
+            apiService = get()
+        )
+    }
 
     factory<ObserveScratchCardUseCase> {
         ObserveScratchCardUseCaseImpl(

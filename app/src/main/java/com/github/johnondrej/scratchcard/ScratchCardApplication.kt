@@ -1,6 +1,7 @@
 package com.github.johnondrej.scratchcard
 
 import android.app.Application
+import com.github.johnondrej.scratchcard.features.activation.di.activationModule
 import com.github.johnondrej.scratchcard.features.scratch.di.scratchModule
 import com.github.johnondrej.scratchcard.features.status.di.statusModule
 import com.github.johnondrej.scratchcard.shared.core.networking.di.networkingModule
@@ -16,7 +17,8 @@ class ScratchCardApplication : Application() {
                 networkingModule,
                 scratchCardModule,
                 statusModule,
-                scratchModule
+                scratchModule,
+                activationModule
             )
         }
     }
