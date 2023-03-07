@@ -5,8 +5,8 @@ import com.github.johnondrej.scratchcard.shared.scratchcard.domain.ObserveScratc
 import com.github.johnondrej.scratchcard.shared.scratchcard.model.entities.domain.ScratchCard
 import com.github.johnondrej.scratchcard.testing.MainDispatcherRule
 import io.kotest.matchers.shouldBe
-import io.mockk.coVerify
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.flowOf
@@ -32,13 +32,13 @@ class ActivationScreenViewModelTest {
 
     @Test
     fun `should activate card`() = runTest {
-        val activateUseCase: ActivateCardUseCase = mockk()
+        val activateUseCase: ActivateCardUseCase = mockk(relaxUnitFun = true)
         val viewModel = viewModel(activateUseCase = activateUseCase)
         val code = 321
 
         viewModel.activate(code)
 
-        coVerify {
+        verify {
             activateUseCase.invoke(code)
         }
     }
