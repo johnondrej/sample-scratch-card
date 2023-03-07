@@ -38,7 +38,10 @@ class ScratchCardRepositoryImpl(
         }
     }
 
-    private fun generateCode() = Random.nextInt()
+    private fun generateCode() = Random.nextInt(
+        from = 0,
+        until = Int.MAX_VALUE
+    )
 
     companion object {
 

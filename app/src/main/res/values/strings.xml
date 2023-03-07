@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Scratch Card</string>
 
-    <string name="screen_scratch">Scratch</string>
-    <string name="screen_activation">Activation</string>
+    <string name="screen_scratch">Scratch card</string>
+    <string name="screen_activation">Activate card</string>
 
     <string name="status_format">Status: %s</string>
     <string name="status_new">New</string>
@@ -10,8 +10,10 @@
     <string name="status_activated">Activated (Code %s)</string>
 
     <string name="scratch_action">Scratch</string>
+    <string name="scratch_incorrect_state">This card is already scratched.</string>
 
     <string name="activate_action">Activate</string>
+    <string name="activate_incorrect_state">Only non-activated scratched cards can be activated.</string>
 
     <string name="notification_activation_channel_name">Activation messages</string>
     <string name="notification_activation_error_title">Activation error</string>
