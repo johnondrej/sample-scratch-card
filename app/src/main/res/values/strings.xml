@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Scratch Card</string>
+
+    <string name="screen_scratch">Scratch</string>
+    <string name="screen_activation">Activation</string>
 </resources>
