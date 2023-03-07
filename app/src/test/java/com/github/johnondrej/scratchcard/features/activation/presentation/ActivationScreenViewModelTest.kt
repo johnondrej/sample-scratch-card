@@ -25,8 +25,7 @@ class ActivationScreenViewModelTest {
         val viewModel = viewModel()
 
         viewModel.uiStateStream.firstOrNull() shouldBe ActivationScreenState(
-            scratchCard = ScratchCard.New,
-            isLoading = false
+            scratchCard = ScratchCard.New
         )
     }
 

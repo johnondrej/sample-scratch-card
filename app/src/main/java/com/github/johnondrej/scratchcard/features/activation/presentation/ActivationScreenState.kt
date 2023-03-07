@@ -4,8 +4,10 @@ import com.github.johnondrej.scratchcard.shared.scratchcard.model.entities.domai
 
 data class ActivationScreenState(
     val scratchCard: ScratchCard? = null,
-    val isLoading: Boolean = false,
 ) {
+
+    val isLoading: Boolean
+        get() = scratchCard is ScratchCard.Scratched && scratchCard.isActivating
 
     val canActivate: Boolean
         get() = scratchCard is ScratchCard.Scratched

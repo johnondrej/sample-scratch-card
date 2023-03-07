@@ -20,7 +20,7 @@ class StatusScreenViewModelTest {
     @Test
     fun `should pass correct scratch card to screen state`() = runTest {
         val viewModelNew = viewModel()
-        val scratched = ScratchCard.Scratched(code = 123)
+        val scratched = ScratchCard.Scratched(code = 123, isActivating = false)
         val viewModelScratched = viewModel(
             scratchCard = scratched
         )

@@ -18,13 +18,12 @@ class ActivationScreenViewModel(
     private fun observeData() {
         viewModelScope.launch {
             observeScratchCard().collect { scratchCard ->
-                updateState { state -> state.copy(scratchCard = scratchCard, isLoading = false) }
+                updateState { state -> state.copy(scratchCard = scratchCard) }
             }
         }
     }
 
     fun activate(code: Int) {
-        updateState { state -> state.copy(isLoading = true) }
         activateCard(code)
     }
 }

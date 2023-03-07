@@ -20,11 +20,13 @@ class ScratchCardRepositoryImpl(
 
     override suspend fun scratchCard() {
         delay(SCRATCH_DELAY)
-        scratchCardFlow.value = ScratchCard.Scratched(generateCode())
+        scratchCardFlow.value = ScratchCard.Scratched(code = generateCode(), isActivating = false)
     }
 
     override suspend fun activateCard(code: Int): ScratchCardActivationResult {
-        return try {
+        scratchCardFlow.value = ScratchCard.Scratched(code = code, isActivating = true)
+
+        val result = try {
             val response = apiService.getVersion(code)
 
             if ((response.android?.toIntOrNull() ?: 0) >= ACTIVATION_SUCCESS_THRESHOLD) {
@@ -36,6 +38,11 @@ class ScratchCardRepositoryImpl(
         } catch (e: Exception) {
             ScratchCardActivationResult.Error
         }
+
+        if (result == ScratchCardActivationResult.Error) {
+            scratchCardFlow.value = ScratchCard.Scratched(code = code, isActivating = false)
+        }
+        return result
     }
 
     private fun generateCode() = Random.nextInt(

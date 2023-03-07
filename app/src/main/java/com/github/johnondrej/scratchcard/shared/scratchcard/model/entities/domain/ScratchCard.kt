@@ -9,7 +9,7 @@ sealed interface ScratchCard {
         override val code: Int? = null
     }
 
-    data class Scratched(override val code: Int) : ScratchCard
+    data class Scratched(override val code: Int, val isActivating: Boolean) : ScratchCard
 
     data class Activated(override val code: Int) : ScratchCard
 }
