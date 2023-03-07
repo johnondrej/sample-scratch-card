@@ -12,4 +12,8 @@
     <string name="scratch_action">Scratch</string>
 
     <string name="activate_action">Activate</string>
+
+    <string name="notification_activation_channel_name">Activation messages</string>
+    <string name="notification_activation_error_title">Activation error</string>
+    <string name="notification_activation_error_text">Your card cannot be activated.</string>
 </resources>

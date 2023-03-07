@@ -2,6 +2,7 @@ package com.github.johnondrej.scratchcard.features.activation.domain
 
 import com.github.johnondrej.scratchcard.shared.scratchcard.domain.ScratchCardRepository
 import com.github.johnondrej.scratchcard.shared.scratchcard.model.entities.domain.ScratchCardActivationResult
+import com.github.johnondrej.scratchcard.shared.scratchcard.presentation.notifications.NotificationController
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -14,7 +15,7 @@ interface ActivateCardUseCase {
 @OptIn(DelicateCoroutinesApi::class)
 class ActivateCardUseCaseImpl(
     private val scratchCardRepository: ScratchCardRepository,
-    // TODO error notifier
+    private val notificationController: NotificationController
 ) : ActivateCardUseCase {
 
     override fun invoke(code: Int) {
@@ -26,7 +27,7 @@ class ActivateCardUseCaseImpl(
             }
 
             if (result is ScratchCardActivationResult.Error) {
-                // TODO show notification
+                notificationController.showActivationErrorNotification()
             }
         }
     }

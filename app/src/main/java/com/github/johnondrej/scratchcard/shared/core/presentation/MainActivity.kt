@@ -1,5 +1,7 @@
 package com.github.johnondrej.scratchcard.shared.core.presentation
 
+import android.Manifest
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -10,6 +12,8 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.NavHost
@@ -20,8 +24,13 @@ import com.github.johnondrej.scratchcard.features.activation.presentation.Activa
 import com.github.johnondrej.scratchcard.features.scratch.presentation.ScratchScreen
 import com.github.johnondrej.scratchcard.features.status.presentation.StatusScreen
 import com.github.johnondrej.scratchcard.ui.theme.ScratchCardTheme
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.isGranted
+import com.google.accompanist.permissions.rememberPermissionState
 
+@OptIn(ExperimentalPermissionsApi::class)
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -63,6 +72,23 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     }
+                }
+            }
+
+            NotificationRequest()
+        }
+    }
+
+    @Composable
+    private fun NotificationRequest() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            val permissionState = rememberPermissionState(
+                permission = Manifest.permission.POST_NOTIFICATIONS
+            )
+
+            LaunchedEffect(Unit) {
+                if (!permissionState.status.isGranted) {
+                    permissionState.launchPermissionRequest()
                 }
             }
         }

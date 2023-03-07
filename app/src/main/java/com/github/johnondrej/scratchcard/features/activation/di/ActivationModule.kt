@@ -10,7 +10,8 @@ val activationModule = module {
 
     factory<ActivateCardUseCase> {
         ActivateCardUseCaseImpl(
-            scratchCardRepository = get()
+            scratchCardRepository = get(),
+            notificationController = get()
         )
     }
 
